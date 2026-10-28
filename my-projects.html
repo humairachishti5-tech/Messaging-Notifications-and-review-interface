@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | CODIORA</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            color: #25243a;
+        }
+
+        header {
+            background: #241b45;
+            color: white;
+            padding: 22px 7%;
+        }
+
+        header h2 {
+            margin: 0 0 8px;
+            color: #b9a7ff;
+        }
+
+        nav {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading p {
+            color: #6b6b7b;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 23px;
+            box-shadow: 0 3px 12px #0000000b;
+            border: 1px solid #e8e7f0;
+        }
+
+        .project-card h2 {
+            font-size: 21px;
+            margin-top: 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #fff0cf;
+            color: #805900;
+        }
+
+        .completed {
+            background: #d9f8e3;
+            color: #176b36;
+        }
+
+        .cancelled {
+            background: #ffe1e1;
+            color: #a52c2c;
+        }
+
+        .people {
+            background: #f7f5ff;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .project-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .project-info div {
+            flex: 1;
+        }
+
+        .muted {
+            color: #77778a;
+            font-size: 13px;
+        }
+
+        .progress-track {
+            background: #e8e5f3;
+            height: 9px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            background: #7254d6;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 16px;
+            background: #6546c4;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .btn:hover {
+            background: #4b329b;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .filter-buttons button {
+            border: 1px solid #d8d2ec;
+            background: white;
+            color: #48358c;
+            padding: 10px 15px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .filter-buttons button.active {
+            background: #6546c4;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #777;
+        }
+
+        @media (max-width: 650px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-info {
+                flex-direction: column;
+            }
+
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>CODIORA</h2>
+    <p>Our Code Builds Your Vision</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="find-jobs.html">Find Jobs</a>
+        <a href="my-proposals.html">My Proposals</a>
+        <a href="my-projects.html">My Projects</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="page-heading">
+        <h1>My Orders / Projects</h1>
+        <p>Manage your freelance projects and track their progress.</p>
+    </section>
+
+    <div class="filter-buttons">
+        <button class="active" data-filter="all">All Projects</button>
+        <button data-filter="In Progress">Active</button>
+        <button data-filter="Completed">Completed</button>
+        <button data-filter="Submitted">Submitted</button>
+        <button data-filter="Pending">Pending</button>
+        <button data-filter="Cancelled">Cancelled</button>
+    </div>
+
+    <section class="project-grid">
+
+        <article class="project-card" data-status="In Progress">
+            <span class="status">In Progress</span>
+            <h2>Business Website Development</h2>
+            <p>Create a responsive website for a small business.</p>
+
+            <div class="people">
+                <strong>Client:</strong> Ali Ahmed<br>
+                <strong>Freelancer:</strong> Sara Khan
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <span class="muted">Project Budget</span>
+                    <h3>$300</h3>
+                </div>
+                <div>
+                    <span class="muted">Deadline</span>
+                    <h3>15 Nov 2026</h3>
+                </div>
+            </div>
+
+            <p>Project Progress: 60%</p>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 60%"></div>
+            </div>
+
+            <a class="btn" href="project-details.html">View Details</a>
+        </article>
+
+        <article class="project-card" data-status="Completed">
+            <span class="status completed">Completed</span>
+            <h2>Landing Page Design</h2>
+            <p>Design a modern landing page for a new product.</p>
+
+            <div class="people">
+                <strong>Client:</strong> Ahmed Raza<br>
+                <strong>Freelancer:</strong> Mehak Fatima
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <span class="muted">Project Budget</span>
+                    <h3>$150</h3>
+                </div>
+                <div>
+                    <span class="muted">Deadline</span>
+                    <h3>10 Oct 2026</h3>
+                </div>
+            </div>
+
+            <p>Project Progress: 100%</p>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 100%"></div>
+            </div>
+
+            <a class="btn" href="project-details.html">View Details</a>
+        </article>
+
+        <article class="project-card" data-status="Pending">
+            <span class="status">Pending</span>
+            <h2>Portfolio Website</h2>
+            <p>Build a personal portfolio website.</p>
+
+            <div class="people">
+                <strong>Client:</strong> Usman Ali<br>
+                <strong>Freelancer:</strong> Ayesha Noor
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <span class="muted">Project Budget</span>
+                    <h3>$200</h3>
+                </div>
+                <div>
+                    <span class="muted">Deadline</span>
+                    <h3>30 Nov 2026</h3>
+                </div>
+            </div>
+
+            <p>Project Progress: 0%</p>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 0%"></div>
+            </div>
+
+            <a class="btn" href="project-details.html">View Details</a>
+        </article>
+
+        <article class="project-card" data-status="Submitted">
+            <span class="status">Submitted</span>
+            <h2>Social Media Graphics</h2>
+            <p>Create promotional graphics for social media.</p>
+
+            <div class="people">
+                <strong>Client:</strong> Hira Malik<br>
+                <strong>Freelancer:</strong> Zain Ahmed
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <span class="muted">Project Budget</span>
+                    <h3>$100</h3>
+                </div>
+                <div>
+                    <span class="muted">Deadline</span>
+                    <h3>28 Oct 2026</h3>
+                </div>
+            </div>
+
+            <p>Project Progress: 100%</p>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 100%"></div>
+            </div>
+
+            <a class="btn" href="project-details.html">View Details</a>
+        </article>
+
+        <article class="project-card" data-status="Cancelled">
+            <span class="status cancelled">Cancelled</span>
+            <h2>Blog Website Project</h2>
+            <p>A sample project that was cancelled.</p>
+
+            <div class="people">
+                <strong>Client:</strong> Hassan Ali<br>
+                <strong>Freelancer:</strong> Maryam Khan
+            </div>
+
+            <div class="project-info">
+                <div>
+                    <span class="muted">Project Budget</span>
+                    <h3>$120</h3>
+                </div>
+                <div>
+                    <span class="muted">Deadline</span>
+                    <h3>20 Oct 2026</h3>
+                </div>
+            </div>
+
+            <p>Project Progress: 20%</p>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: 20%"></div>
+            </div>
+
+            <a class="btn" href="project-details.html">View Details</a>
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>CODIORA | Our Code Builds Your Vision</p>
+</footer>
+
+<script>
+    const filterButtons = document.querySelectorAll(".filter-buttons button");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            const filter = button.dataset.filter;
+
+            filterButtons.forEach(function(item) {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            projectCards.forEach(function(card) {
+                if (filter === "all" || card.dataset.status === filter) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

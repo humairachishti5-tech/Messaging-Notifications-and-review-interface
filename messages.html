@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | CODIORA</title>
+    <link rel="stylesheet" href="messages.css">
+    <script src="messages.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">CODIORA</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="find-jobs.html">Find Jobs</a>
+            <a href="my-projects.html">My Projects</a>
+            <a href="messages.html" class="active">Messages</a>
+        </nav>
+
+        <button id="notificationBtn" class="notification-btn"
+                type="button" aria-label="Open notifications">
+            Notifications
+            <span id="unreadCount" class="badge">3</span>
+        </button>
+    </header>
+
+    <main class="container">
+        <section class="page-heading">
+            <h1>Messages & Reviews</h1>
+            <p>Chat with clients and freelancers, manage notifications, and share your experience.</p>
+        </section>
+
+        <section class="chat-section">
+            <aside class="conversation-panel">
+                <h2>Conversations</h2>
+
+                <button class="conversation active"
+                        data-user="ali" type="button">
+                    <span class="avatar">AA</span>
+                    <span class="conversation-info">
+                        <strong>Ali Ahmed</strong>
+                        <small>How is the project going?</small>
+                        <small>2:30 PM</small>
+                    </span>
+                    <span class="unread-dot" aria-label="Unread messages"></span>
+                </button>
+
+                <button class="conversation"
+                        data-user="sara" type="button">
+                    <span class="avatar pink">SK</span>
+                    <span class="conversation-info">
+                        <strong>Sara Khan</strong>
+                        <small>Thank you for the update!</small>
+                        <small>Yesterday</small>
+                    </span>
+                </button>
+
+                <button class="conversation"
+                        data-user="ahmed" type="button">
+                    <span class="avatar purple">AM</span>
+                    <span class="conversation-info">
+                        <strong>Ahmed Malik</strong>
+                        <small>Please check the design.</small>
+                        <small>Monday</small>
+                    </span>
+                </button>
+            </aside>
+
+            <section class="chat-panel">
+                <div class="chat-header">
+                    <span id="chatAvatar" class="avatar">AA</span>
+                    <div>
+                        <h2 id="chatUser">Ali Ahmed</h2>
+                        <p>Freelancer / Client</p>
+                    </div>
+                </div>
+
+                <div id="chatWindow" class="chat-window"
+                     aria-live="polite" aria-label="Chat messages">
+                </div>
+
+                <form id="messageForm" class="message-form">
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type your message..."
+                        maxlength="500"
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </section>
+
+        <section id="notificationsSection" class="content-card">
+            <div class="section-heading">
+                <h2>Notifications</h2>
+                <button id="markAllRead" class="secondary-btn"
+                        type="button">Mark all as read</button>
+            </div>
+
+            <div id="notificationList">
+                <button class="notification-item unread" type="button">
+                    <span class="notification-icon">✉</span>
+                    <span>
+                        <strong>New message received</strong>
+                        <small>Ali Ahmed sent you a message.</small>
+                    </span>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <button class="notification-item unread" type="button">
+                    <span class="notification-icon">✓</span>
+                    <span>
+                        <strong>Proposal accepted</strong>
+                        <small>Your proposal has been accepted.</small>
+                    </span>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <button class="notification-item unread" type="button">
+                    <span class="notification-icon">★</span>
+                    <span>
+                        <strong>Project completed</strong>
+                        <small>Your project has been marked as completed.</small>
+                    </span>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <button class="notification-item" type="button">
+                    <span class="notification-icon">☆</span>
+                    <span>
+                        <strong>New review received</strong>
+                        <small>A client shared their experience.</small>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <section id="reviewSection" class="content-card">
+            <h2>Rate Your Experience</h2>
+            <p class="section-description">
+                Completed a project? Share your feedback with the community.
+            </p>
+
+            <form id="reviewForm">
+                <label for="reviewerName">Your name</label>
+                <input
+                    type="text"
+                    id="reviewerName"
+                    placeholder="Enter your name"
+                    maxlength="50"
+                    required
+                >
+
+                <label for="reviewTarget">Review for</label>
+                <select id="reviewTarget" required>
+                    <option value="Ali Ahmed">Ali Ahmed</option>
+                    <option value="Sara Khan">Sara Khan</option>
+                    <option value="Ahmed Malik">Ahmed Malik</option>
+                </select>
+
+                <label>Star rating</label>
+                <div id="starRating" class="star-rating"
+                     role="group" aria-label="Choose a rating">
+                    <button type="button" data-rating="1"
+                            aria-label="1 star">★</button>
+                    <button type="button" data-rating="2"
+                            aria-label="2 stars">★</button>
+                    <button type="button" data-rating="3"
+                            aria-label="3 stars">★</button>
+                    <button type="button" data-rating="4"
+                            aria-label="4 stars">★</button>
+                    <button type="button" data-rating="5"
+                            aria-label="5 stars">★</button>
+                </div>
+                <p id="ratingText" class="hint">Select your rating (1–5).</p>
+
+                <label for="reviewComment">Your review</label>
+                <textarea
+                    id="reviewComment"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Write your experience..."
+                    required
+                ></textarea>
+
+                <button type="submit" class="primary-btn">
+                    Submit Review
+                </button>
+
+                <p id="reviewMessage" class="feedback"
+                   role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="content-card">
+            <h2>Customer Reviews</h2>
+            <div id="reviewsList" class="reviews-list">
+                <article class="review-card">
+                    <div class="review-top">
+                        <span class="avatar">MF</span>
+                        <div>
+                            <h3>Mehak Fatima</h3>
+                            <p class="review-date">October 20, 2026</p>
+                        </div>
+                        <span class="review-stars">★★★★★</span>
+                    </div>
+                    <p>Great communication and a smooth project experience.</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-top">
+                        <span class="avatar pink">SK</span>
+                        <div>
+                            <h3>Sara Khan</h3>
+                            <p class="review-date">October 18, 2026</p>
+                        </div>
+                        <span class="review-stars">★★★★☆</span>
+                    </div>
+                    <p>The work was delivered on time. Thank you!</p>
+                </article>
+            </div>
+        </section>
+
+        <p id="pageMessage" class="page-message"
+           role="status" aria-live="polite"></p>
+    </main>
+
+    <footer>
+        <p>CODIORA | Our Code Builds Your Vision</p>
+    </footer>
+
+</body>
+</html>
